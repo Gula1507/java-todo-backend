@@ -1,5 +1,5 @@
-
-import ToDos from "./components/ToDos.tsx";
+import ToDos from "./ToDos.tsx";
+import AddToDo from "./AddToDo.tsx";
 
 
 function Overview() {
@@ -8,7 +8,7 @@ function Overview() {
         <>
 
             <ToDos/>
-
+            <AddToDo/>
         </>
     )
 }

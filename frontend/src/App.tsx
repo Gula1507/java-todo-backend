@@ -2,7 +2,8 @@ import './App.css'
 import {Route, Routes} from "react-router-dom";
 import Header from "./components/Header.tsx";
 import ToDos from "./components/ToDos.tsx";
-import Overview from "./Overview.tsx";
+import Overview from "./components/Overview.tsx";
+import AddToDo from "./components/AddToDo.tsx";
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
             <Routes>
                 <Route path="/"     element={<Overview/>}/>
                 <Route path="/todo" element={<ToDos/>}/>
-                {/*<Route path="/add" element={<AddToDo/>}/>*/}
+                <Route path="/add" element={<AddToDo/>}/>
             </Routes>
         </>
     )

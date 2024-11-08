@@ -1,4 +1,4 @@
-import {ToDoType} from "../ToDoType.ts";
+import {ToDoType} from "../types/ToDoType.ts";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import './Todos.css';
@@ -23,17 +23,16 @@ function ToDos() {
 
     return (
         <div className="todo-container">
-            <section>
-                <h3>OPEN</h3>
+            <section className="todo-section">
+                <h3>ToDo</h3>
+                <ul></ul>
                 {/* Todos mit Status 'Done' filtern und anzeigen */}
                 {todos.filter((todo) => todo.status === 'OPEN').map((todo) => (
-                    <div key={todo.id}>
-                        <p>{todo.status}</p>
-                        <p>{todo.description}</p>
-                    </div>
+                    <section key={todo.id} className="eachTodo">{todo.description}
+                    </section>
                 ))}
             </section>
-            <section>
+            <section className="todo-section">
                 <h3>Doing</h3>
                 {/* Todos mit Status 'Done' filtern und anzeigen */}
                 {todos.filter((todo) => todo.status === 'IN_PROGRESS').map((todo) => (
@@ -43,7 +42,7 @@ function ToDos() {
                     </div>
                 ))}
             </section>
-            <section>
+            <section className="todo-section">
                 <h3>Done</h3>
                 {/* Todos mit Status 'Done' filtern und anzeigen */}
                 {todos.filter((todo) => todo.status === 'DONE').map((todo) => (

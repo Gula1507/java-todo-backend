@@ -2,13 +2,26 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    padding: 2px;
+    box-sizing: border-box;
 }
 
 
-.todo-container section {
-    padding: 10px;
+.todo-section {
+    padding: 2px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
     flex: 1;
+}
+
+
+.eachTodo {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #646cff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
