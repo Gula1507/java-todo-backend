@@ -1,14 +1,14 @@
 import {ToDo} from "../types/ToDo.ts";
 import {ChangeEvent, FormEvent, useState} from "react";
 
-import './Todos.css';
+import './ToDoPage.css';
 
 type TodoProps = {
     todos: ToDo[]
     saveToDo: (newToDo: ToDo) => void
 }
 
-export default function ToDos(props: TodoProps) {
+export default function ToDoPage(props: TodoProps) {
     console.log(props);
     const [newToDo, setNewToDo] = useState<ToDo>({id: "", description: "", status: 'OPEN'});
 
@@ -25,7 +25,7 @@ export default function ToDos(props: TodoProps) {
 
     return (
         <>
-
+            <h1>ToDos</h1>
             <div className="todo-container">
                 <section className="todo-section">
                     <h3>ToDo</h3>

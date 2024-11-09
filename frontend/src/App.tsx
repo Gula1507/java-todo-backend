@@ -1,7 +1,7 @@
 import './App.css'
 import {Route, Routes} from "react-router-dom";
 import Header from "./components/Header.tsx";
-import ToDos from "./components/ToDos.tsx";
+import ToDoPage from "./components/ToDoPage.tsx";
 import AddToDo from "./components/AddToDo.tsx";
 import {ToDo} from "./types/ToDo.ts";
 import {useEffect, useState} from "react";
@@ -30,11 +30,11 @@ function App() {
     return (
         <>
             <Header/>
-            <ToDos todos={todos}/>
+            <ToDoPage todos={todos} saveToDo={saveToDo}/>
 
             <Routes>
 
-                <Route path="/todo" element={<ToDos todos={todos} saveToDo={saveToDo}/>}/>
+                <Route path="/todo" element={<ToDoPage todos={todos} saveToDo={saveToDo}/>}/>
                 <Route path="/add" element={<AddToDo/>}/>
             </Routes>
         </>
