@@ -17,7 +17,6 @@ export default function ToDoCard(props: Props) {
 
             <div className="todo-card-info">
                 <h3>{props.todo.description}</h3>
-                <p>Status: {props.todo.status}</p>
             </div>
         </div>
     );

@@ -28,7 +28,7 @@ function App() {
     return (
         <>
             <Header/>
-            <ToDoPage todos={todos} saveToDo={saveToDo}/>
+            <ToDoPage todos={todos} saveToDo={saveToDo} onNewToDoItemSaved={loadAllToDos}/>
 
             <Routes>
 
