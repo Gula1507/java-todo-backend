@@ -1,0 +1,8 @@
+
+.todo-card-info {
+    /*margin-bottom: 10px;*/
+    padding: 10px;
+    background-color: #646cff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}

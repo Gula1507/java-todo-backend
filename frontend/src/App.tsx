@@ -2,8 +2,7 @@ import './App.css'
 import {Route, Routes} from "react-router-dom";
 import Header from "./components/Header.tsx";
 import ToDoPage from "./components/ToDoPage.tsx";
-import AddToDo from "./components/AddToDo.tsx";
-import {ToDo} from "./types/ToDo.ts";
+import {ToDo} from "./models/ToDo.ts";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
@@ -11,7 +10,6 @@ function App() {
     const [todos, setToDos] = useState<ToDo[]>([])
 
     useEffect(() => {
-        console.log("one time")
         loadAllToDos()
     }, [])
 
@@ -34,8 +32,8 @@ function App() {
 
             <Routes>
 
-                <Route path="/todo" element={<ToDoPage todos={todos} saveToDo={saveToDo}/>}/>
-                <Route path="/add" element={<AddToDo/>}/>
+                <Route path="/todos" element={<ToDoPage todos={todos} saveToDo={saveToDo}/>}/>
+
             </Routes>
         </>
     )

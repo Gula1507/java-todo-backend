@@ -1,12 +1,14 @@
-import {ToDo} from "../types/ToDo.ts";
+import {ToDo} from "../models/ToDo.ts";
 import {ChangeEvent, FormEvent, useState} from "react";
-
-import './ToDoPage.css';
+import '../styles/ToDoPage.css';
+import ToDoColumn from "./ToDoColumn.tsx";
+import {allStatuses} from "../models/ToDoStatus.ts"
 
 type TodoProps = {
     todos: ToDo[]
     saveToDo: (newToDo: ToDo) => void
 }
+
 
 export default function ToDoPage(props: TodoProps) {
     console.log(props);
@@ -27,37 +29,20 @@ export default function ToDoPage(props: TodoProps) {
         <>
             <h1>ToDos</h1>
             <div className="todo-container">
-                <section className="todo-section">
-                    <h3>ToDo</h3>
-                    <ul></ul>
-                    {/* Todos mit Status 'Done' filtern und anzeigen */}
-                    {props.todos.filter((todo) => todo.status === 'OPEN').map((todo) => (
-                        <section key={todo.id} className="eachTodo">{todo.description}
-                        </section>
-                    ))}
-                </section>
-                <section className="todo-section">
-                    <h3>Doing</h3>
-                    {/* Todos mit Status 'Done' filtern und anzeigen */}
-                    {props.todos.filter((todo) => todo.status === 'IN_PROGRESS').map((todo) => (
-                        <div key={todo.id}>
-                            <p>{todo.status}</p>
-                            <p>{todo.description}</p>
-                        </div>
-                    ))}
-                </section>
-                <section className="todo-section">
-                    <h3>Done</h3>
-                    {/* Todos mit Status 'Done' filtern und anzeigen */}
-                    {props.todos.filter((todo) => todo.status === 'DONE').map((todo) => (
-                        <div key={todo.id}>
-                            <p>{todo.status}</p>
-                            <p>{todo.description}</p>
-                        </div>
-                    ))}
-                </section>
+                {
+                    allStatuses.map(status => {
+                        const filteredToDos = props.todos.filter(
+                            todo => todo.status === status);
 
+                        return (<div className="todo-section" key="status">
+                                <ToDoColumn status={status} todos={filteredToDos}/>
+                            </div>
+                        )
+                    })
+                }
             </div>
+
+
             <form onSubmit={onToDoSubmit}>
                 <input type="text" onChange={onToDoChange} name="description" value={newToDo.description}
                        placeholder="ToDo description"
