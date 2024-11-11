@@ -6,7 +6,7 @@ import {allStatuses} from "../models/ToDoStatus.ts"
 type TodoProps = {
     todos: ToDo[]
     saveToDo: (newToDo: ToDo) => void
-    onNewToDoItemSaved: () => void
+    onToDoChanged: () => void
 }
 
 
@@ -16,18 +16,12 @@ export default function ToDoPage(props: TodoProps) {
         <>
             <h1>ToDos</h1>
             <div className="todo-container">
-                {
-                    allStatuses.map(status => {
-                        const filteredToDos = props.todos.filter(
-                            todo => todo.status === status);
-
-                        return (<div className="todo-section" key="status">
-                                <ToDoColumn status={status} todos={filteredToDos}
-                                            onNewTodoItemSaved={props.onNewToDoItemSaved}/>
-                            </div>
-                        )
-                    })
-                }
+                {allStatuses.map(status => {
+                    const filteredToDos = props.todos.filter(todo => todo.status === status);
+                    return <ToDoColumn status={status} todos={filteredToDos}
+                                       onToDoChanged={props.onToDoChanged}
+                                       key={status}/>;
+                })}
             </div>
 
         </>

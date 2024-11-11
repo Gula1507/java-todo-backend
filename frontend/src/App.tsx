@@ -28,11 +28,12 @@ function App() {
     return (
         <>
             <Header/>
-            <ToDoPage todos={todos} saveToDo={saveToDo} onNewToDoItemSaved={loadAllToDos}/>
+            <ToDoPage todos={todos} saveToDo={saveToDo} onToDoChanged={loadAllToDos}/>
 
             <Routes>
 
-                <Route path="/todos" element={<ToDoPage todos={todos} saveToDo={saveToDo}/>}/>
+                <Route path="/todos" element={<ToDoPage todos={todos} saveToDo={saveToDo}
+                                                        onToDoChanged={loadAllToDos}/>}/>
 
             </Routes>
         </>
