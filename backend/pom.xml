@@ -15,7 +15,7 @@
     <description>backend</description>
     <properties>
         <sonar.projectName>ProjectName</sonar.projectName>
-        <java.version>20</java.version>
+        <java.version>23</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -33,9 +33,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
+        <finalName>todo-app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.jacoco</groupId>
