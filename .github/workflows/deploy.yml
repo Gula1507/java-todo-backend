@@ -82,7 +82,7 @@ jobs:
     needs: push-to-docker-hub
     environment:
       name: Capstone Project # Capstone Project name
-      url: https://neuefische.de/ # Link to deployment
+      url: https://todo-app-na1d.onrender.com/ # Link to deployment
     steps:
       - name: Trigger Render.com Deployment
         run: |
