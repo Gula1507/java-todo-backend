@@ -49,8 +49,8 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: app.jar
-          path: backend/target/app.jar # must match the finalName in the pom.xml
+          name: todo-app.jar
+          path: backend/target/todo-app.jar # must match the finalName in the pom.xml
 
   push-to-docker-hub:
     runs-on: ubuntu-latest
@@ -60,7 +60,7 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          name: app.jar
+          name: todo-app.jar
           path: backend/target
 
       - name: Login to DockerHub
