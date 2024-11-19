@@ -25,7 +25,7 @@ public class UserIntegrationTest {
     @DirtiesContext
     @WithMockUser
     void testGetMe_withLoggedInUser_expectUsername() throws Exception {
-        mockMvc.perform(get("/api/users/me")
+        mockMvc.perform(get("/api/auth/me")
                         .with(oidcLogin().userInfoToken(token -> token.claim("login", "github-username"))))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("user"));
@@ -34,7 +34,7 @@ public class UserIntegrationTest {
 
     @Test
     void testGetMe_withoutLogin_expectAnonymusUser() throws Exception {
-        mockMvc.perform(get("/api/users/me"))
+        mockMvc.perform(get("/api/auth/me"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("anonymousUser"));
     }
