@@ -3,9 +3,10 @@ import {Route, Routes} from "react-router-dom";
 import Header from "./components/Header.tsx";
 import ToDoPage from "./components/ToDoPage.tsx";
 import {ToDo} from "./models/ToDo.ts";
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import ProtectedRoute from "./ProtectedRoute.tsx";
+
 
 function App() {
     const [todos, setToDos] = useState<ToDo[]>([])
@@ -14,12 +15,13 @@ function App() {
     useEffect(() => {
         loadUser()
     }, [])
+
     const loadUser = () => {
         axios.get('/api/auth/me')
             .then(response => {
                 setUser(response.data)
             })
-            .catch(error => {
+            .catch(() => {
                 setUser(null)
             })
     }
@@ -35,13 +37,6 @@ function App() {
         const host = window.location.host === 'localhost:5173' ? 'http://localhost:8080' : window.location.origin
 
         window.open(host + '/logout', '_self')
-    }
-
-    function getUser() {
-        axios.get("api/users/me")
-            .then(response => {
-                console.log(response.data)
-            })
     }
 
     useEffect(() => {
